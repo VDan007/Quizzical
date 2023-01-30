@@ -1,10 +1,22 @@
 import React from 'react';
+import Question from "./Question.jsx";
 
 
 
 function App() {
-  const [gameStarted,setGameStarted] = React.useState(false);
+  const [gameStarted,setGameStarted] = React.useState(true); //show or hide start page
   
+
+  React.useEffect(              /////load questions
+    ()=>{
+      console.log('effect ran');
+      fetch("https://opentdb.com/api.php?amount=10&type=multiple")
+        .then(resp=>resp.json())
+        .then(questions => console.log(questions));
+    },[]
+  );
+
+
 
   return (
       
@@ -17,9 +29,11 @@ function App() {
          </div>
         } 
 
-      </div>
+        <Question/>
+
+      </div> //app--container
      
   )
 }
 
-export default App
+export default App;
