@@ -31,13 +31,13 @@ function Question(props){
         answer => {
             return <Answer
             key = {nanoid()}
-            text = {answer}  />
+            text = {answer}
+            question = {props.question}
+            answerByPlayer = {props.answerByPlayer}  />
         }
       );
    
-    console.log(allAnswers);
-    shuffle(allAnswers);
-    console.log(allAnswers);
+    
 
 
 

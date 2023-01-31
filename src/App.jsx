@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 function App() {
   const [gameStarted,setGameStarted] = React.useState(true); //show or hide start page
   const [questions,setQuestions] = React.useState([]);
-  console.log(questions);
+  const [answersByPlayer,setAnswersByPlayer] = React.useState([]);
   
 
   React.useEffect(              /////load questions
@@ -23,6 +23,25 @@ function App() {
     },[]
   );
 
+  function answerByPlayer(question, answer){
+
+    setAnswersByPlayer(prev =>{
+
+      if(prev.every(item=>item.question != question || !item)){ 
+      return [...prev,{question: question,
+                       answer: answer}]
+      }
+      else{
+        return prev.map(item => {
+          if(item.question === question){
+            return {question: question,
+                    answer: answer}
+          }else return item;
+        });
+      }
+    });
+  }
+  console.log(answersByPlayer);
 
   const questionsToRender = questions.map(
     question => {
@@ -31,9 +50,12 @@ function App() {
               question={question.qu} 
               correctAnswer={question.correctAnswer}
               incorrectAnswer={question.incorrect_answers}
+              answerByPlayer = {answerByPlayer}
               />
     }
   );
+
+
 
 
   return (
