@@ -7,11 +7,11 @@ function Answer(props){
     let stylesInput = {};
 
     if(props.checkAnswers && props.selectedAnswer == props.text && props.text == props.correctAnswer){
-        stylesLabel = {backgroundColor: "rgba(53,134,0,0.8)"};
+        stylesLabel = {backgroundColor: "#248232"};
     }else if (props.checkAnswers && props.selectedAnswer == props.text && props.text != props.correctAnswer){
-        stylesLabel = {backgroundColor: "rgba(145,47,64,0.8)"};
+        stylesLabel = {backgroundColor: "#C73E1D"};
     }else if(props.checkAnswers && props.text == props.correctAnswer){
-        stylesLabel = {backgroundColor: "rgba(53,134,0,0.8)"};
+        stylesLabel = {backgroundColor: "#248232"};
     }
 
     if(props.checkAnswers && props.text == props.correctAnswer){
@@ -26,6 +26,7 @@ function Answer(props){
                    value = {props.text}
                    onChange = { (e)=>props.answerByPlayer(e) }
                    style = {stylesInput}
+                   disabled = {props.checkAnswers}
                     />
         </label>
     );
