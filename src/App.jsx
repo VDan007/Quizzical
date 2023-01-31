@@ -91,8 +91,8 @@ console.log(questions);
 
         { !gameStarted && <div className="startPage--overlay">
             <h1>Quizzical</h1>
-            <p>a Scrimba Reac Project</p>
-            <p>by Daniel Varjaskéri</p>
+            <p>a Scrimba React Project</p>
+            <p className="startPage--authorP">by Daniel Varjaskéri</p>
             <button onClick={startGame}>Start quiz</button>
          </div>
         } 
