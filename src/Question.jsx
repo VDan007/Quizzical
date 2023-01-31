@@ -47,7 +47,7 @@ function Question(props){
 
     return(
         <div className = "question--div">
-            <p>{props.question}</p>
+            <h2>{props.question}</h2>
             <div className="answers--container">
                 
                     {answers}

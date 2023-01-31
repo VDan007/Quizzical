@@ -96,10 +96,17 @@ console.log(questions);
             <button onClick={startGame}>Start quiz</button>
          </div>
         } 
+        <div className="questions--container">
 
         {questionsToRender}
+        </div>
+
+        <div className="app--footer">
         {checkAnswers && <p>You Scored {poinCounter()}/5</p>}
         <button onClick={check}>{checkAnswers ? "Play again" : "Check answers"}</button>
+
+        </div>
+
       </div> //app--container
       
      
