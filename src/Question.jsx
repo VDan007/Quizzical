@@ -1,4 +1,6 @@
 import React from 'react';
+import Answer from './Answer.jsx';
+import { nanoid } from 'nanoid';
 
 
 function Question(props){
@@ -7,25 +9,46 @@ function Question(props){
     allAnswers.push(props.correctAnswer);
 
     
-    const shuffleArray = array => {
-        for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+    function shuffle(array) {
+        let currentIndex = array.length,  randomIndex;
+      
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+      
+          // Pick a remaining element.
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+      
+          // And swap it with the current element.
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
         }
-    }
+      
+        return array;
+      }
     
+      const answers = allAnswers.map(
+        answer => {
+            return <Answer
+            key = {nanoid()}
+            text = {answer}  />
+        }
+      );
    
     console.log(allAnswers);
-    shuffleArray(allAnswers);
+    shuffle(allAnswers);
     console.log(allAnswers);
+
 
 
     return(
         <div className = "question--div">
             <p>{props.question}</p>
-            <p>answers</p>
+            <div className="answers--container">
+                <div className="answer--div">
+                    {answers}
+                </div>
+            </div>
         </div>
     );
 }
