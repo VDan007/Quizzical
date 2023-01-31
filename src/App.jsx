@@ -5,16 +5,35 @@ import { nanoid } from 'nanoid';
 
 
 function App() {
-  const [gameStarted,setGameStarted] = React.useState(true); //show or hide start page
+  const [gameStarted,setGameStarted] = React.useState(false); //show or hide start page
   const [questions,setQuestions] = React.useState([]);
   const [checkAnswers,setCheckAnswers] = React.useState(false);
+  const [restart,setReastart] = React.useState(false);
 
+
+
+  function startGame(){
+    setGameStarted(true);
+  }
 
   function check(){
-    setCheckAnswers(prev=>!prev);
+    if(!checkAnswers && questions.every(question =>question.selectedAnswer)){
+      setCheckAnswers(true);
+    }else if (!checkAnswers){
+      alert("Before checking please be so kind and answer all of the questions");
+    }else{
+      setCheckAnswers(false);
+      setReastart(prev=> !prev);
+    }
+  }
+
+  function poinCounter(){
+    return  questions.filter(question=>{
+      return question.correctAnswer == question.selectedAnswer}).length;
+      
   }
   
-  console.log(questions);
+
 
   React.useEffect(              /////load questions
     ()=>{
@@ -27,7 +46,7 @@ function App() {
                 incorrect_answers: item.incorrect_answers,
                 selectedAnswer: ""}  })))
         
-    },[]
+    },[restart]
   );
 
   function answerByPlayer(e){
@@ -73,12 +92,13 @@ function App() {
         { !gameStarted && <div className="startPage--overlay">
             <h1>Quizzical</h1>
             <p>a Scrimba Reac Project</p>
-            <button>Start quiz</button>
+            <button onClick={startGame}>Start quiz</button>
          </div>
         } 
 
         {questionsToRender}
-        <button onClick={check}>check</button>
+        {checkAnswers && <p>You Scored {poinCounter()}/5</p>}
+        <button onClick={check}>{checkAnswers ? "Play again" : "Check answers"}</button>
       </div> //app--container
       
      
