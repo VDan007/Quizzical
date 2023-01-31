@@ -38,10 +38,15 @@ console.log(questions);
   React.useEffect(              /////load questions
     ()=>{
       
+      let pattern = /&quot;/g;
+      let replacement = '"';
+      let pattern02 = /&#039;/g;
+      let replacement02 = "'";
+
       fetch("https://opentdb.com/api.php?amount=5&type=multiple")
         .then(resp=>resp.json())
         .then(questions => setQuestions(questions.results.map(item=>{
-         return {qu: item.question,
+         return {qu: item.question.replace(pattern,replacement).replace(pattern02,replacement02),
                 correctAnswer : item.correct_answer,
                 incorrect_answers: item.incorrect_answers,
                 selectedAnswer: ""}  })))
