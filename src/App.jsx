@@ -10,7 +10,7 @@ function App() {
   const [checkAnswers,setCheckAnswers] = React.useState(false);
   const [restart,setReastart] = React.useState(false);
 
-
+console.log(questions);
 
   function startGame(){
     setGameStarted(true);
@@ -92,6 +92,7 @@ function App() {
         { !gameStarted && <div className="startPage--overlay">
             <h1>Quizzical</h1>
             <p>a Scrimba Reac Project</p>
+            <p>by Daniel Varjaskéri</p>
             <button onClick={startGame}>Start quiz</button>
          </div>
         } 
