@@ -13,7 +13,7 @@ function App() {
   React.useEffect(              /////load questions
     ()=>{
       console.log('effect ran');
-      fetch("https://opentdb.com/api.php?amount=1&type=multiple")
+      fetch("https://opentdb.com/api.php?amount=5&type=multiple")
         .then(resp=>resp.json())
         .then(questions => setQuestions(questions.results.map(item=>{
          return {qu: item.question,

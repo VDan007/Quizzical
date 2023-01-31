@@ -45,9 +45,9 @@ function Question(props){
         <div className = "question--div">
             <p>{props.question}</p>
             <div className="answers--container">
-                <div className="answer--div">
+                
                     {answers}
-                </div>
+                
             </div>
         </div>
     );
