@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 function App() {
   const [gameStarted,setGameStarted] = React.useState(true); //show or hide start page
   const [questions,setQuestions] = React.useState([]);
-  const [answersByPlayer,setAnswersByPlayer] = React.useState([]);
+  
   
 
   React.useEffect(              /////load questions
@@ -18,30 +18,30 @@ function App() {
         .then(questions => setQuestions(questions.results.map(item=>{
          return {qu: item.question,
                 correctAnswer : item.correct_answer,
-                incorrect_answers: item.incorrect_answers}  })))
+                incorrect_answers: item.incorrect_answers,
+                selectedAnswer: ""}  })))
         
     },[]
   );
 
-  function answerByPlayer(question, answer){
-
-    setAnswersByPlayer(prev =>{
-
-      if(prev.every(item=>item.question != question || !item)){ 
-      return [...prev,{question: question,
-                       answer: answer}]
-      }
-      else{
-        return prev.map(item => {
-          if(item.question === question){
-            return {question: question,
-                    answer: answer}
-          }else return item;
-        });
-      }
+  function answerByPlayer(e){
+    const question = e.target.name;
+    const answer = e.target.value;
+    
+    setQuestions(prev=>{
+      return prev.map(item => {
+        if(item.qu == question){
+          return {...item,selectedAnswer: answer}
+        }else{
+          return item;
+        }
+      });
     });
+
   }
-  console.log(answersByPlayer);
+
+ 
+  
 
   const questionsToRender = questions.map(
     question => {
@@ -51,6 +51,7 @@ function App() {
               correctAnswer={question.correctAnswer}
               incorrectAnswer={question.incorrect_answers}
               answerByPlayer = {answerByPlayer}
+              selectedAnswer = {question.selectedAnswer}
               />
     }
   );

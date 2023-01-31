@@ -33,7 +33,8 @@ function Question(props){
             key = {nanoid()}
             text = {answer}
             question = {props.question}
-            answerByPlayer = {props.answerByPlayer}  />
+            answerByPlayer = {props.answerByPlayer}
+            selectedAnswer = {props.selectedAnswer}  />
         }
       );
    
