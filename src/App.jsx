@@ -7,12 +7,18 @@ import { nanoid } from 'nanoid';
 function App() {
   const [gameStarted,setGameStarted] = React.useState(true); //show or hide start page
   const [questions,setQuestions] = React.useState([]);
+  const [checkAnswers,setCheckAnswers] = React.useState(false);
+
+
+  function check(){
+    setCheckAnswers(prev=>!prev);
+  }
   
-  
+  console.log(questions);
 
   React.useEffect(              /////load questions
     ()=>{
-      console.log('effect ran');
+      
       fetch("https://opentdb.com/api.php?amount=5&type=multiple")
         .then(resp=>resp.json())
         .then(questions => setQuestions(questions.results.map(item=>{
@@ -52,6 +58,7 @@ function App() {
               incorrectAnswer={question.incorrect_answers}
               answerByPlayer = {answerByPlayer}
               selectedAnswer = {question.selectedAnswer}
+              checkAnswers = {checkAnswers}
               />
     }
   );
@@ -71,8 +78,9 @@ function App() {
         } 
 
         {questionsToRender}
-
+        <button onClick={check}>check</button>
       </div> //app--container
+      
      
   )
 }

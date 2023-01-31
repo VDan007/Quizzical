@@ -33,8 +33,11 @@ function Question(props){
             key = {nanoid()}
             text = {answer}
             question = {props.question}
+            correctAnswer = {props.correctAnswer}
             answerByPlayer = {props.answerByPlayer}
-            selectedAnswer = {props.selectedAnswer}  />
+            selectedAnswer = {props.selectedAnswer} 
+            checkAnswers = {props.checkAnswers} 
+            />
         }
       );
    
