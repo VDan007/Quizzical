@@ -10,7 +10,7 @@ function App() {
   const [checkAnswers,setCheckAnswers] = React.useState(false);
   const [restart,setReastart] = React.useState(false);
 
-console.log(questions);
+
 
   function startGame(){
     setGameStarted(true);
@@ -108,23 +108,22 @@ console.log(questions);
       
       <div className='app--container'>
 
-        { !gameStarted && <div className="startPage--overlay">
-            <h1>Quizzical</h1>
-            <p>a Scrimba React Project</p>
-            <p className="startPage--authorP">by Daniel Varjaskéri</p>
-            <button onClick={startGame}>Start quiz</button>
-         </div>
-        } 
-        <div className="questions--container">
+          { !gameStarted && <div className="startPage--overlay">
+              <h1>Quizzical</h1>
+              <p>a Scrimba React Project</p>
+              <p className="startPage--authorP">by Daniel Varjaskéri</p>
+              <button onClick={startGame}>Start quiz</button>
+          </div> }
+           
+          <div className="questions--container">
+            {questionsToRender}
+          </div>
 
-        {questionsToRender}
-        </div>
+          <div className="app--footer">
+            {checkAnswers && <p>You Scored {poinCounter()}/5</p>}
+            <button onClick={check}>{checkAnswers ? "Play again" : "Check answers"}</button>
 
-        <div className="app--footer">
-        {checkAnswers && <p>You Scored {poinCounter()}/5</p>}
-        <button onClick={check}>{checkAnswers ? "Play again" : "Check answers"}</button>
-
-        </div>
+          </div>
 
       </div> //app--container
       
