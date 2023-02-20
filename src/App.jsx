@@ -78,7 +78,7 @@ console.log(questions);
         answers.push(element);
     });
 
-    answers.splice( Math.floor( Math.random() * incorrectA.length ),0, correctA );
+    answers.splice( Math.floor( Math.random() * (incorrectA.length + 1) ),0, correctA );
     return answers;
   }
   

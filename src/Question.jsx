@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 function Question(props){
   
     const allAnswers = props.allAnswers;
-    console.log( "shuffledAs" + allAnswers)
+    
       
      
     
