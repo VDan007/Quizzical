@@ -133,7 +133,7 @@ input{
   top:0;
   left:0;
   appearance : none;
-  border-radius: 7px;;
+  border-radius: 7px;
   width: 100%;
   height: 100%;
   z-index: 5;
@@ -141,7 +141,7 @@ input{
   transition-property: all;
   transition-duration: 400ms;
   transition-timing-function: ease-in-out;
-  
+  background-color: rgba(1,1,1,0);
   
   
 }
