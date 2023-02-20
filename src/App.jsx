@@ -114,16 +114,16 @@ function App() {
               <p className="startPage--authorP">by Daniel Varjaskéri</p>
               <button onClick={startGame}>Start quiz</button>
           </div> }
-           
-          <div className="questions--container">
-            {questionsToRender}
-          </div>
 
-          <div className="app--footer">
+         {gameStarted && <div className="questions--container">
+            {questionsToRender}
+          </div> }
+
+          {gameStarted && <div className="app--footer">
             {checkAnswers && <p>You Scored {poinCounter()}/5</p>}
             <button onClick={check}>{checkAnswers ? "Play again" : "Check answers"}</button>
 
-          </div>
+          </div>}
 
       </div> //app--container
       
