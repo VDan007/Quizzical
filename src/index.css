@@ -13,9 +13,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  color: #4F345A;
+  color: #293264;
   
-  background-image: linear-gradient(0deg, #D9AFD9, #97D9E1);
+  background-image: linear-gradient(0deg, #F5F7FB, #97D9E1);
 
   font-family: 'Poppins', sans-serif;
 
@@ -30,7 +30,7 @@
 .startPage--overlay h1{
   line-height: 1em;
   font-size: 3.5em;
-  color: #4F345A;
+  color: #293264;
 }
 
 .startPage--overlay p{
@@ -46,13 +46,13 @@
 }
 
  button{
-  color: #4F345A;
+  color: #293264;
   margin-top: 1em;
   border-radius: 15px;
   border: none;
   background-color: inherit;
   padding: 0.7em 1.5em;
-  box-shadow: #BD2D87 0px -2px 6px 0px inset; 
+  box-shadow: #293264 0px -2px 6px 0px inset; 
   transition-duration: 600ms;
   transition-timing-function: ease-in-out;
 }
@@ -68,8 +68,8 @@
 
 
 .app--container{
-  background-image: linear-gradient(55deg, #D9AFD9, #97D9E1);
-  color: #4F345A;
+  background-image: linear-gradient(55deg, #F5F7FB, #97D9E1);
+  color: #293264;
   position: relative;
   min-width: 100vw;
   min-height: 100vh;
@@ -97,12 +97,12 @@
   width: 100%;
   text-align: center;
   padding-bottom: 3em;
-  border-bottom: 1px solid #BD2D87;
+  border-bottom: 1px solid #293264;
   
 }
 
 .question--div h2{
-  color: #4F345A;
+  color: #293264;
   margin-bottom: 1em;
 }
 
@@ -116,7 +116,7 @@
   
 }
 .answer--div{
-  border: 19px solid black;
+  border: 19px solid #293264;
 }
 
 label{
@@ -148,14 +148,14 @@ input{
 }
 
 input:hover{
-  box-shadow:  #BD2D87 0px -2px 6px 0px inset;
+  box-shadow:  #293264 0px -2px 6px 0px inset;
   border-radius: 15px;
   
   
 }
 
 input:checked{
-  box-shadow:  #BD2D87 0px -2px 6px 0px inset;
+  box-shadow:  #293264 0px -2px 6px 0px inset;
   
   
   

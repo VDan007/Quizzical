@@ -7,11 +7,11 @@ function Answer(props){
     let stylesInput = {};
 
     if(props.checkAnswers && props.selectedAnswer == props.text && props.text == props.correctAnswer){
-        stylesLabel = {backgroundColor: "#248232"};
+        stylesLabel = {backgroundColor: "#94D7A2"};
     }else if (props.checkAnswers && props.selectedAnswer == props.text && props.text != props.correctAnswer){
-        stylesLabel = {backgroundColor: "#C73E1D"};
+        stylesLabel = {backgroundColor: "#F8BCBC"};
     }else if(props.checkAnswers && props.text == props.correctAnswer){
-        stylesLabel = {backgroundColor: "#248232"};
+        stylesLabel = {backgroundColor: "#94D7A2"};
     }
 
     if(props.checkAnswers && props.text == props.correctAnswer){
