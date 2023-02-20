@@ -9,7 +9,7 @@ function Answer(props){
     if(props.checkAnswers && props.selectedAnswer == props.text && props.text == props.correctAnswer){
         stylesLabel = {backgroundColor: "#248232"};
     }else if (props.checkAnswers && props.selectedAnswer == props.text && props.text != props.correctAnswer){
-        stylesLabel = {backgroundColor: "red"};
+        stylesLabel = {backgroundColor: "#C73E1D"};
     }else if(props.checkAnswers && props.text == props.correctAnswer){
         stylesLabel = {backgroundColor: "#248232"};
     }
