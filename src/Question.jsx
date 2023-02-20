@@ -4,13 +4,8 @@ import { nanoid } from 'nanoid';
 
 
 function Question(props){
-  
-    const allAnswers = props.allAnswers;
-    
-      
-     
-    
-      const answers = allAnswers.map(
+  const allAnswers = props.allAnswers;
+  const answers = allAnswers.map(
         answer => {
             return <Answer
                     key = {nanoid()}
@@ -21,24 +16,14 @@ function Question(props){
                     selectedAnswer = {props.selectedAnswer} 
                     checkAnswers = {props.checkAnswers} 
                    />
-        }
-      );
-   
-    
-
-
-
-    return(
+                  });
+  return(
         <div className = "question--div">
             <h2>{props.question}</h2>
             <div className="answers--container">
-                
-                    {answers}
-                
+              {answers}
             </div>
         </div>
-    );
+  );
 }
-
-
 export default Question;

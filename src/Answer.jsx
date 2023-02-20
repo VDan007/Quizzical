@@ -1,8 +1,6 @@
 import React from "react";
 
-
 function Answer(props){
-
     let stylesLabel = {};
     let stylesInput = {};
 
@@ -27,9 +25,8 @@ function Answer(props){
                    onChange = { (e)=>props.answerByPlayer(e) }
                    style = {stylesInput}
                    disabled = {props.checkAnswers}
-                    />
+                />
         </label>
     );
 }
-
 export default Answer;
