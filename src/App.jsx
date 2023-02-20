@@ -49,7 +49,8 @@ console.log(questions);
          return {qu: item.question.replace(pattern,replacement).replace(pattern02,replacement02),
                 correctAnswer : item.correct_answer,
                 incorrect_answers: item.incorrect_answers,
-                selectedAnswer: ""}  })))
+                selectedAnswer: "",
+                allAnswers: shuffleAnswers(item.incorrect_answers,item.correct_answer)}  })))
         
     },[restart]
   );
@@ -85,7 +86,7 @@ console.log(questions);
     const questionsToRender = questions.map(
     question => {
 
-      const allAnswers = shuffleAnswers(question.incorrect_answers,question.correctAnswer);
+      
 
       return <Question 
               key={nanoid()} 
@@ -95,7 +96,7 @@ console.log(questions);
               answerByPlayer = {answerByPlayer}
               selectedAnswer = {question.selectedAnswer}
               checkAnswers = {checkAnswers}
-               allAnswers = {allAnswers}
+              allAnswers = {question.allAnswers}
               />
     }
   );
