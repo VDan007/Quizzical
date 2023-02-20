@@ -4,40 +4,23 @@ import { nanoid } from 'nanoid';
 
 
 function Question(props){
-
-    const allAnswers = props.incorrectAnswer.map(item=>item);
-    allAnswers.push(props.correctAnswer);
-
-    
-    function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
+  
+    const allAnswers = props.allAnswers;
+    console.log( "shuffledAs" + allAnswers)
       
-        // While there remain elements to shuffle.
-        while (currentIndex != 0) {
-      
-          // Pick a remaining element.
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
-      
-          // And swap it with the current element.
-          [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-        }
-      
-        return array;
-      }
+     
     
       const answers = allAnswers.map(
         answer => {
             return <Answer
-            key = {nanoid()}
-            text = {answer}
-            question = {props.question}
-            correctAnswer = {props.correctAnswer}
-            answerByPlayer = {props.answerByPlayer}
-            selectedAnswer = {props.selectedAnswer} 
-            checkAnswers = {props.checkAnswers} 
-            />
+                    key = {nanoid()}
+                    text = {answer}
+                    question = {props.question}
+                    correctAnswer = {props.correctAnswer}
+                    answerByPlayer = {props.answerByPlayer}
+                    selectedAnswer = {props.selectedAnswer} 
+                    checkAnswers = {props.checkAnswers} 
+                   />
         }
       );
    

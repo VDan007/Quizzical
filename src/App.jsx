@@ -70,11 +70,23 @@ console.log(questions);
 
   }
 
- 
+
+  function shuffleAnswers(incorrectA,correctA){
+    const answers = [];
+    incorrectA.forEach(element => {
+        answers.push(element);
+    });
+
+    answers.splice( Math.floor( Math.random() * incorrectA.length ),0, correctA );
+    return answers;
+  }
   
 
-  const questionsToRender = questions.map(
+    const questionsToRender = questions.map(
     question => {
+
+      const allAnswers = shuffleAnswers(question.incorrect_answers,question.correctAnswer);
+
       return <Question 
               key={nanoid()} 
               question={question.qu} 
@@ -83,6 +95,7 @@ console.log(questions);
               answerByPlayer = {answerByPlayer}
               selectedAnswer = {question.selectedAnswer}
               checkAnswers = {checkAnswers}
+               allAnswers = {allAnswers}
               />
     }
   );
