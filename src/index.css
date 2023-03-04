@@ -56,6 +56,9 @@
   transition-timing-function: ease-in-out;
 }
 
+#root{
+  overflow-x: hidden;
+}
 
 .app--container{
   background-image: linear-gradient(55deg, #F5F7FB, #97D9E1);
